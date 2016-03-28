@@ -1,0 +1,20 @@
+<h1> Welcome to Super Rentals </h1>
+
+We hope you find exactly what you're looking for in a place to stay.
+
+
+<ul>
+  {{#each model as |rental|}}
+    {{rental-tile rental=rental destroyRental="destroyRental"}}
+  {{/each}}
+</ul>
+
+<!--
+  //save1() from 'new-rentals.js' collects all the data entered in input fields
+
+component emits the action save2 sending it with the params hash that was just made in save1 at this.sendAction('save2', params); this is then set to save3 wish we will name the rout handler's action for saving -->
+
+{{new-rental save2="save3"}}
+
+{{#link-to 'about'}}About{{/link-to}}
+{{#link-to 'contact'}}Click here to contact us.{{/link-to}}
