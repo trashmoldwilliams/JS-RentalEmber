@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('rental');
+    return Ember.RSVP.hash({
+      rentals: this.store.findAll('rental'),
+      cities: this.store.findAll('city')
+
+    });
   },
 
   actions: {
@@ -11,7 +15,11 @@ export default Ember.Route.extend({
       newRental.save();
       this.transitionTo('index');
     },
-
+    saveCity(params) {
+      var newCity = this.store.createRecord('city', params);
+      newCity.save();
+      this.transitionTo('index');
+    },
     update(rental, params) {
       Object.keys(params).forEach(function(key) {
         if(params[key]!==undefined) {
