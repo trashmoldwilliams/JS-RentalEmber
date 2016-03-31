@@ -1,0 +1,11 @@
+<li>{{city.name}}</li>
+<li>{{city.country}}</li>
+
+<h2> Available Rentals </h2>
+<ul>
+  {{#each city.rentals as |rental|}}
+    {{rental-tile rental=rental}}
+  {{/each}}
+</ul>
+
+<button {{action 'delete' city}}>Delete</button>
