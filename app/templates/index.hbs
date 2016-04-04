@@ -7,7 +7,7 @@ We hope you find exactly what you're looking for in a place to stay.
 <h2> Available Rentals </h2>
 <ul>
   {{#each model.rentals as |rental|}}
-    {{rental-tile rental=rental}}
+    {{rental-tile rental=rental}} {{rental-cost rental}}
   {{/each}}
 </ul>
 
@@ -18,6 +18,7 @@ We hope you find exactly what you're looking for in a place to stay.
     <li>{{#link-to 'city' city.id}}{{city.name}}{{/link-to}}</li>
   {{/each}}
 </ul>
+<!-- {{city-tile}} -->
 
 {{new-city save2="saveCity"}}
 
