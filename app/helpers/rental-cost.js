@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export function rentalCost(params) {
-  var rentalPrice = params[0].get('cost');
+  var rentalPrice = parseInt(params[0].get('cost'));
 
   if (rentalPrice >= 150){
     return '$$$$';
